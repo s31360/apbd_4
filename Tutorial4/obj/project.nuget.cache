@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "YAz/SWiw4mQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ru0ma\\OneDrive\\Desktop\\Tutorial5\\Tutorial4\\Tutorial4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ru0ma\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.14\\microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\ru0ma\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.14\\microsoft.windowsdesktop.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\ru0ma\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.14\\microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\ru0ma\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.14\\microsoft.netcore.app.host.win-x64.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

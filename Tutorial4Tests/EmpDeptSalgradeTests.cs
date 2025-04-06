@@ -115,9 +115,15 @@ public class EmpDeptSalgradeTests
     {
         var emps = Database.GetEmps();
 
-        // var result = null; 
-        //
-        // Assert.All(result, r => Assert.NotNull(r.Comm));
+        var result = (from e in emps
+            where e.Comm != null
+            select new
+            {
+                e.EName,
+                e.Comm
+            }).ToList();
+
+        Assert.All(result, r => Assert.NotNull(r.Comm));
     }
 
     // 8. Join with Salgrade
@@ -128,9 +134,16 @@ public class EmpDeptSalgradeTests
         var emps = Database.GetEmps();
         var grades = Database.GetSalgrades();
 
-        // var result = null;
-        //
-        // Assert.Contains(result, r => r.EName == "ALLEN" && r.Grade == 3);
+        var result = (from e in emps
+            from s in grades
+            where e.Sal >= s.Losal && e.Sal <= s.Hisal
+            select new
+            {
+                e.EName,
+                s.Grade
+            }).ToList();
+
+        Assert.Contains(result, r => r.EName == "ALLEN" && r.Grade == 3);
     }
 
     // 9. Aggregation (AVG)

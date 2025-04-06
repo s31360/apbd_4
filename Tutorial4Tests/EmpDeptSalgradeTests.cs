@@ -153,9 +153,15 @@ public class EmpDeptSalgradeTests
     {
         var emps = Database.GetEmps();
 
-        // var result = null; 
-        //
-        // Assert.Contains(result, r => r.DeptNo == 30 && r.AvgSal > 1000);
+        var result = (from e in emps
+            group e by e.DeptNo into g
+            select new
+            {
+                DeptNo = g.Key,
+                AvgSal = g.Average(e => e.Sal)
+            }).ToList();
+
+        Assert.Contains(result, r => r.DeptNo == 30 && r.AvgSal > 1000);
     }
 
     // 10. Complex filter with subquery and join
@@ -165,8 +171,13 @@ public class EmpDeptSalgradeTests
     {
         var emps = Database.GetEmps();
 
-        // var result = null; 
-        //
-        // Assert.Contains("ALLEN", result);
+        var result = (from e in emps
+            let deptAvg = emps
+                .Where(emp => emp.DeptNo == e.DeptNo)
+                .Average(emp => emp.Sal)
+            where e.Sal > deptAvg
+            select e.EName).ToList();
+
+        Assert.Contains("ALLEN", result);
     }
 }
